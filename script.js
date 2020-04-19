@@ -1,25 +1,22 @@
 //start timer
-var quizTimer = 2;
+var quizTimer = 60;
+var timerInterval;
 
 function setTime() {
-  var timerInterval = setInterval(function() {
-    quizTimer--;
-    console.log(quizTimer);
-
-    if(quizTimer === 0) {
-      clearInterval(timerInterval);
-      quizOver();
-    }
-
-  }, 1000);
+  timerInterval = setInterval(countDown, 50);
 }
 
-
-
-
+function countDown(){
+  quizTimer--;
+  //console.log(quizTimer);
+  if(quizTimer ===0) {
+      quizOver();
+  }
+}
 
 function quizOver() {
  alert('time up!')
+ clearInterval(timerInterval);
 }
 
 setTime();
