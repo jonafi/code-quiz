@@ -1,27 +1,42 @@
-//start timer
+//timer vars
 var quizTimer = 60;
 var timerInterval;
 
-function setTime() {
-  timerInterval = setInterval(countDown, 50);
+//DOM manipulation vars
+var displayCountdown = document.querySelector("#timer");
+var startButton = document.querySelector("#startButton");
+
+//begin countdown
+function beginQuiz() {
+timerInterval = setInterval(countDown, 50);
 }
 
+//countdown by one, when 0 trigger quiz over
 function countDown(){
-  quizTimer--;
-  //console.log(quizTimer);
-  if(quizTimer ===0) {
-      quizOver();
-  }
+quizTimer--;
+displayCountdown.innerHTML = quizTimer;
+//console.log(quizTimer);
+if(quizTimer ===0) {
+quizOver();
+}
 }
 
+//stop the timer calculate score etc...
 function quizOver() {
- alert('time up!')
- clearInterval(timerInterval);
+  displayCountdown.innerHTML = "TIME UP!"
+  clearInterval(timerInterval);
+
 }
 
-setTime();
 
-//localstorage
+addEventListener("click", beginQuiz)
 
 
-//DOM manipulation
+
+
+
+
+
+/////////////////localstorage
+
+
