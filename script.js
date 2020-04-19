@@ -7,19 +7,30 @@ var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
 
+// //Question bank
+var questionBank = {
+  question1:"Commonly used dat types DO NOT include:",
+  answers1:["strings","booleans","alerts","numbers"],
+  correctAnswer1:"alerts",
+  question2:"What does HTML stand for?",
+  answers2:["How to meet ladies","Hypertext Markup Language","It doesn't stand for anything","Hey! That's MY lettuce!"],
+  correctAnswer2:"alerts"
+  };
+  
+
 //begin countdown
 function beginQuiz() {
-timerInterval = setInterval(countDown, 50);
-quiz();
+  timerInterval = setInterval(countDown, 50);
+  quiz();
 }
 
 //countdown by one, when 0 trigger quiz over
 function countDown(){
-quizTimer--;
-displayCountdown.innerHTML = quizTimer;
-if(quizTimer ===0) {
-quizOver();
-}
+  quizTimer--;
+  displayCountdown.innerHTML = quizTimer;
+  if(quizTimer ===0) {
+    quizOver();
+  }
 }
 
 //stop the timer calculate score etc...
@@ -31,10 +42,8 @@ function quizOver() {
 
 //quiz questions
 function quiz(){
-
-quizContent.innerHTML = "question 1: why is an orange"; 
+  quizContent.innerHTML = questionBank.question2 + questionBank.answers2; 
 }
-
 startButton.addEventListener("click", beginQuiz)
 
 
