@@ -53,8 +53,8 @@ function quizOver() {
 //quiz questions
 function quiz(){
 quizContent.innerHTML = "";
-challengeQuestion.innerText ="why is an orange?";
-listAnswerOption1.innerText="because";
+challengeQuestion.innerText = questionBank.question1;
+listAnswerOption1.innerText=questionBank.answers1[0];
 listAnswerOption2.innerText="why not?";
 listAnswerOption3.innerText="ask your mom"
 listAnswerOption4.innerText="herman";
