@@ -1,3 +1,15 @@
+body{
+    background-color: #D8F2F0;
+}
 header{
     padding-bottom:20px;
+}
+#highScores{
+    color:#3E8C84;
+    text-decoration:underline;
+}
+
+#highScores:hover{
+    font-weight:bold;
+    text-decoration: none;
 }

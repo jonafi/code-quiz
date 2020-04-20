@@ -6,6 +6,7 @@ var timerInterval;
 var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
+var highScores = document.querySelector("#highScores");
 
 // //Question bank
 var questionBank = {
@@ -20,7 +21,7 @@ var questionBank = {
 
 //begin countdown
 function beginQuiz() {
-  timerInterval = setInterval(countDown, 50);
+  timerInterval = setInterval(countDown, 1000);
   quiz();
 }
 
@@ -44,12 +45,18 @@ function quizOver() {
 function quiz(){
   quizContent.innerHTML = questionBank.question2 + questionBank.answers2; 
 }
-startButton.addEventListener("click", beginQuiz)
+
+
+startButton.addEventListener("click", beginQuiz);
+highScores.addEventListener("click", displayHighScores);
 
 
 
 
 
+function displayHighScores(){
+  alert('local storage stuff');
+}
 
 
 /////////////////localstorage
