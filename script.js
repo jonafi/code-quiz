@@ -8,16 +8,19 @@ var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
 var highScores = document.querySelector("#highScores");
 
+//DOM creation vars
+var challengeQuestion = document.createElement("p")
+var listAnswers = document.createElement("ol");
+
 // //Question bank
 var questionBank = {
-  question1:"Commonly used dat types DO NOT include:",
+  question1:"Commonly used data types DO NOT include:",
   answers1:["strings","booleans","alerts","numbers"],
   correctAnswer1:"alerts",
   question2:"What does HTML stand for?",
   answers2:["How to meet ladies","Hypertext Markup Language","It doesn't stand for anything","Hey! That's MY lettuce!"],
   correctAnswer2:"alerts"
   };
-  
 
 //begin countdown
 function beginQuiz() {
@@ -43,7 +46,11 @@ function quizOver() {
 
 //quiz questions
 function quiz(){
-  quizContent.innerHTML = questionBank.question2 + questionBank.answers2; 
+quizContent.innerHTML = "";
+challengeQuestion.textContent="first question goes here";
+listAnswers.innerHTML = "<li>first things</li><li>second thing</li>";
+quizContent.appendChild(challengeQuestion);
+quizContent.appendChild(listAnswers);
 }
 
 
