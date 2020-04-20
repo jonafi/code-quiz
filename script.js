@@ -55,9 +55,9 @@ function quiz(){
 quizContent.innerHTML = "";
 challengeQuestion.innerText = questionBank.question1;
 listAnswerOption1.innerText=questionBank.answers1[0];
-listAnswerOption2.innerText="why not?";
-listAnswerOption3.innerText="ask your mom"
-listAnswerOption4.innerText="herman";
+listAnswerOption2.innerText=questionBank.answers1[1];
+listAnswerOption3.innerText=questionBank.answers1[2];
+listAnswerOption4.innerText=questionBank.answers1[3];
 
  quizContent.appendChild(challengeQuestion);
  quizContent.appendChild(listAnswers);
