@@ -19,15 +19,20 @@ var listAnswerOption3 = document.createElement("li");
 var listAnswerOption4 = document.createElement("li");
 
 // //Question bank
-var questionBank = {
-  q1 : {
+var questionBank = [
+  {
     "question" : "What does HTML stand for?",
     "answers" : ["how to meet ladies","HoT MaiL", "HyperText Markup Language","Hey! That's my lettuce!"],
     "correctAnswer" : "HyperText Markup Language"
+   },
+  {
+    "question" : "how long can i make htis question before the style gets weird?",
+    "answers" : ["how","HoT", "Language","Hey! That's my lettuce! long anser thingie bazoo"],
+    "correctAnswer" : "HoT Markup Language"
    }
   
   
-  };
+];
 
 //begin countdown
 function beginQuiz() {
@@ -54,11 +59,11 @@ function quizOver() {
 //quiz questions
 function quiz(){
 quizContent.innerHTML = "";
-challengeQuestion.innerText = questionBank.q1.question;
-listAnswerOption1.innerText=questionBank.q1.answers[0];
-listAnswerOption2.innerText=questionBank.q1.answers[1];
-listAnswerOption3.innerText=questionBank.q1.answers[2];
-listAnswerOption4.innerText=questionBank.q1.answers[3];
+challengeQuestion.innerText = questionBank[0].question;
+listAnswerOption1.innerText=questionBank[0].answers[0];
+listAnswerOption2.innerText=questionBank[0].answers[1];
+listAnswerOption3.innerText=questionBank[0].answers[2];
+listAnswerOption4.innerText=questionBank[0].answers[3];
 
  quizContent.appendChild(challengeQuestion);
  quizContent.appendChild(listAnswers);
