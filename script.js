@@ -20,12 +20,13 @@ var listAnswerOption4 = document.createElement("li");
 
 // //Question bank
 var questionBank = {
-  question1:"Commonly used data types DO NOT include:",
-  answers1:["strings","booleans","alerts","numbers"],
-  correctAnswer1:"alerts",
-  question2:"What does HTML stand for?",
-  answers2:["How to meet ladies","Hypertext Markup Language","It doesn't stand for anything","Hey! That's MY lettuce!"],
-  correctAnswer2:"alerts"
+  q1 : {
+    "question" : "What does HTML stand for?",
+    "answers" : ["how to meet ladies","HoT MaiL", "HyperText Markup Language","Hey! That's my lettuce!"],
+    "correctAnswer" : "HyperText Markup Language"
+   }
+  
+  
   };
 
 //begin countdown
@@ -53,11 +54,11 @@ function quizOver() {
 //quiz questions
 function quiz(){
 quizContent.innerHTML = "";
-challengeQuestion.innerText = questionBank.question1;
-listAnswerOption1.innerText=questionBank.answers1[0];
-listAnswerOption2.innerText=questionBank.answers1[1];
-listAnswerOption3.innerText=questionBank.answers1[2];
-listAnswerOption4.innerText=questionBank.answers1[3];
+challengeQuestion.innerText = questionBank.q1.question;
+listAnswerOption1.innerText=questionBank.q1.answers[0];
+listAnswerOption2.innerText=questionBank.q1.answers[1];
+listAnswerOption3.innerText=questionBank.q1.answers[2];
+listAnswerOption4.innerText=questionBank.q1.answers[3];
 
  quizContent.appendChild(challengeQuestion);
  quizContent.appendChild(listAnswers);
