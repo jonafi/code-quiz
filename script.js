@@ -11,8 +11,8 @@ var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
 var highScores = document.querySelector("#highScores");
-var challengeQuestion = document.createElement("p")
-challengeQuestion.setAttribute("id", "questions")
+var currentQuestion = document.createElement("p")
+currentQuestion.setAttribute("id", "questions")
 var listAnswers = document.createElement("ol");
 listAnswers.setAttribute("id", "choices");
 var listAnswerOption1 = document.createElement("li");
@@ -36,12 +36,12 @@ var questionBank = [
     "question" : "3, thrird question?",
     "answers" : ["333","tres", "drei", "three"],
     "correctAnswer" : "three"
-   }
+   },
   
 ];
 
 //begin countdown
-function beginQuiz() {
+function startTimer() {
   timerInterval = setInterval(countDown, 1000);
   quiz(event);
 }
@@ -64,23 +64,22 @@ function quizOver() {
 
 //quiz questions
 function quiz(event){
-  if(event.target.id ==="startButton"){//if its not the first question calculate points and stuff
+  if(event.target.id ==="startButton"){
   questionIndex = 0;
   score = 0;
   }
   else{
   questionIndex++
   }
- console.log(questionIndex);
-
+ 
  if(questionIndex<questionBank.length){
   quizContent.innerHTML = "";         
-  challengeQuestion.innerText = questionBank[questionIndex].question;
+  currentQuestion.innerText = questionBank[questionIndex].question;
   listAnswerOption1.innerText=questionBank[questionIndex].answers[0];
   listAnswerOption2.innerText=questionBank[questionIndex].answers[1];
   listAnswerOption3.innerText=questionBank[questionIndex].answers[2];
   listAnswerOption4.innerText=questionBank[questionIndex].answers[3];
-  quizContent.appendChild(challengeQuestion);
+  quizContent.appendChild(currentQuestion);
   quizContent.appendChild(listAnswers);
   listAnswers.appendChild(listAnswerOption1);
   listAnswers.appendChild(listAnswerOption2);
@@ -93,7 +92,7 @@ else{
 }
 
 
-startButton.addEventListener("click", beginQuiz);
+startButton.addEventListener("click", startTimer);
 highScores.addEventListener("click", displayHighScores);
 listAnswers.addEventListener("click", quiz);
 
