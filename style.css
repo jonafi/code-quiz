@@ -12,7 +12,6 @@ header{
 
 #highScores:hover{
     text-decoration: none;
-    text-decoration:underline;
 }
 
 ol {
@@ -30,6 +29,5 @@ li{
     
 }
 li:hover{
-    color:#3E8C84;
-    text-decoration: underline;
+    background-color:#53bd0c;
 }
