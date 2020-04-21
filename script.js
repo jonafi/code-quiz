@@ -1,6 +1,7 @@
 //timer vars
 var quizTimer = 60;
 var timerInterval;
+var i=0;  //questionbank index number
 
 //DOM manipulation vars
 var displayCountdown = document.querySelector("#timer");
@@ -26,11 +27,15 @@ var questionBank = [
     "correctAnswer" : "HyperText Markup Language"
    },
   {
-    "question" : "how long can i make htis question before the style gets weird?",
-    "answers" : ["how","HoT", "Language","Hey! That's my lettuce! long anser thingie bazoo"],
-    "correctAnswer" : "HoT Markup Language"
+    "question" : "what is question 2 all about?",
+    "answers" : ["question 2","22222", "ham", "not question 2"],
+    "correctAnswer" : "ham"
+   },
+  {
+    "question" : "3, thrird question?",
+    "answers" : ["333","tres", "drei", "three"],
+    "correctAnswer" : "three"
    }
-  
   
 ];
 
@@ -51,39 +56,31 @@ function countDown(){
 
 //stop the timer calculate score etc...
 function quizOver() {
-  displayCountdown.innerHTML = "TIME UP!"
+  displayCountdown.parentElement.innerHTML = "TIME UP!"
   quizContent.innerHTML = "All done<br>your socre is X<br>Enter your intials[  ]";
   clearInterval(timerInterval);
 }
 
 //quiz questions
 function quiz(event){
-  if(event.target.id==="startButton"){
-    quizContent.innerHTML = "";         
-    challengeQuestion.innerText = questionBank[0].question;
-    listAnswerOption1.innerText=questionBank[0].answers[0];
-    listAnswerOption2.innerText=questionBank[0].answers[1];
-    listAnswerOption3.innerText=questionBank[0].answers[2];
-    listAnswerOption4.innerText=questionBank[0].answers[3];
-    
-    quizContent.appendChild(challengeQuestion);
-    quizContent.appendChild(listAnswers);
-    listAnswers.appendChild(listAnswerOption1);
-    listAnswers.appendChild(listAnswerOption2);
-    listAnswers.appendChild(listAnswerOption3);
-    listAnswers.appendChild(listAnswerOption4);
-
-  }
-  else{
+  //console.log(event.target);
+  quizContent.innerHTML = "";         
+  challengeQuestion.innerText = questionBank[i].question;
+  listAnswerOption1.innerText=questionBank[i].answers[0];
+  listAnswerOption2.innerText=questionBank[i].answers[1];
+  listAnswerOption3.innerText=questionBank[i].answers[2];
+  listAnswerOption4.innerText=questionBank[i].answers[3];
   
-    if(event.target.innerHTML===questionBank[0].correctAnswer){
-      console.log('correct anser given');
-    }
-    else{
-      console.log('incorrect');
-    }
-  } 
+  quizContent.appendChild(challengeQuestion);
+  quizContent.appendChild(listAnswers);
+  listAnswers.appendChild(listAnswerOption1);
+  listAnswers.appendChild(listAnswerOption2);
+  listAnswers.appendChild(listAnswerOption3);
+  listAnswers.appendChild(listAnswerOption4);
+  i++;
+  //console.log(i);
 }
+
 
 startButton.addEventListener("click", beginQuiz);
 highScores.addEventListener("click", displayHighScores);

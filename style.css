@@ -26,8 +26,10 @@ li{
     max-width: 300px;
     background-color: white;
     border-radius: 25px;
+    border:1px solid black;
     
 }
 li:hover{
     background-color:#53bd0c;
+    border:1px solid green;
 }
