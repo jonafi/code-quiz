@@ -1,15 +1,35 @@
 body{
     background-color: #D8F2F0;
+    font-weight: bold;
 }
 header{
     padding-bottom:20px;
 }
 #highScores{
     color:#3E8C84;
-    text-decoration:underline;
+    
 }
 
 #highScores:hover{
-    font-weight:bold;
     text-decoration: none;
+    text-decoration:underline;
+}
+
+ol {
+    list-style-type: upper-alpha;
+    list-style-position: outside;
+}
+
+
+li{
+    margin:10px;
+    padding:5px 0 5px 10px;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 25px;
+    
+}
+li:hover{
+    color:#3E8C84;
+    text-decoration: underline;
 }
