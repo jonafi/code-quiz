@@ -59,11 +59,11 @@ function quizOver() {
 //quiz questions
 function quiz(){
 quizContent.innerHTML = "";
-challengeQuestion.innerText = questionBank[0].question;
-listAnswerOption1.innerText=questionBank[0].answers[0];
-listAnswerOption2.innerText=questionBank[0].answers[1];
-listAnswerOption3.innerText=questionBank[0].answers[2];
-listAnswerOption4.innerText=questionBank[0].answers[3];
+challengeQuestion.innerText = questionBank[1].question;
+listAnswerOption1.innerText=questionBank[1].answers[0];
+listAnswerOption2.innerText=questionBank[1].answers[1];
+listAnswerOption3.innerText=questionBank[1].answers[2];
+listAnswerOption4.innerText=questionBank[1].answers[3];
 
  quizContent.appendChild(challengeQuestion);
  quizContent.appendChild(listAnswers);
