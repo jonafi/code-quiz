@@ -1,9 +1,9 @@
 //timer vars
-var quizTimer = 6; 
+var quizTimer = 60; 
 var timerInterval;
-
+var questionIndex = 0;
 //scoring related vars
-var questionIndex = 0;  
+ 
 var score = 0;
 
 //DOM manipulation vars
@@ -51,22 +51,27 @@ function countDown(){
   quizTimer--;
   displayCountdown.innerHTML = quizTimer;
   if(quizTimer ===0) {
+    displayCountdown.parentElement.innerHTML = "TIME UP!"
     quizOver();
   }
 }
 
 //stop the timer calculate score etc...
 function quizOver() {
-  displayCountdown.parentElement.innerHTML = "TIME UP!"
   quizContent.innerHTML = "All done<br>your socre is X<br>Enter your intials[  ]";
   clearInterval(timerInterval);
 }
 
 //quiz questions
 function quiz(event){
-  if(event.target.id !=="startButton"){//if its not the first question calculate points and stuff
-    
+  if(event.target.id ==="startButton"){//if its not the first question calculate points and stuff
+  questionIndex = 0;
+  score = 0;
   }
+  else{
+  questionIndex++
+  }
+ 
   quizContent.innerHTML = "";         
   challengeQuestion.innerText = questionBank[questionIndex].question;
   listAnswerOption1.innerText=questionBank[questionIndex].answers[0];
@@ -78,10 +83,9 @@ function quiz(event){
   listAnswers.appendChild(listAnswerOption1);
   listAnswers.appendChild(listAnswerOption2);
   listAnswers.appendChild(listAnswerOption3);
-  listAnswers.appendChild(listAnswerOption4);
-  questionIndex++; 
-  
-    
+  listAnswers.appendChild(listAnswerOption4); 
+  console.log(questionIndex)
+
 }
 
 
