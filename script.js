@@ -71,7 +71,9 @@ function quiz(event){
   else{
   questionIndex++
   }
- 
+ console.log(questionIndex);
+
+ if(questionIndex<questionBank.length){
   quizContent.innerHTML = "";         
   challengeQuestion.innerText = questionBank[questionIndex].question;
   listAnswerOption1.innerText=questionBank[questionIndex].answers[0];
@@ -84,8 +86,10 @@ function quiz(event){
   listAnswers.appendChild(listAnswerOption2);
   listAnswers.appendChild(listAnswerOption3);
   listAnswers.appendChild(listAnswerOption4); 
-  console.log(questionIndex)
-
+}
+else{
+  quizOver();
+}
 }
 
 
