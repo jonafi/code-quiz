@@ -1,15 +1,16 @@
 //timer vars
-var quizTimer = 60;
+var quizTimer = 6; 
 var timerInterval;
-var i=0;  //questionbank index number
+
+//scoring related vars
+var questionIndex = 0;  
+var score = 0;
 
 //DOM manipulation vars
 var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
 var highScores = document.querySelector("#highScores");
-
-//DOM creation vars
 var challengeQuestion = document.createElement("p")
 challengeQuestion.setAttribute("id", "questions")
 var listAnswers = document.createElement("ol");
@@ -19,7 +20,7 @@ var listAnswerOption2 = document.createElement("li");
 var listAnswerOption3 = document.createElement("li");
 var listAnswerOption4 = document.createElement("li");
 
-// //Question bank
+//Question bank
 var questionBank = [
   {
     "question" : "What does HTML stand for?",
@@ -45,7 +46,7 @@ function beginQuiz() {
   quiz(event);
 }
 
-//countdown by one, when 0 trigger quiz over
+//countdown when 0 trigger quiz over
 function countDown(){
   quizTimer--;
   displayCountdown.innerHTML = quizTimer;
@@ -63,22 +64,24 @@ function quizOver() {
 
 //quiz questions
 function quiz(event){
-  //console.log(event.target);
+  if(event.target.id !=="startButton"){//if its not the first question calculate points and stuff
+    
+  }
   quizContent.innerHTML = "";         
-  challengeQuestion.innerText = questionBank[i].question;
-  listAnswerOption1.innerText=questionBank[i].answers[0];
-  listAnswerOption2.innerText=questionBank[i].answers[1];
-  listAnswerOption3.innerText=questionBank[i].answers[2];
-  listAnswerOption4.innerText=questionBank[i].answers[3];
-  
+  challengeQuestion.innerText = questionBank[questionIndex].question;
+  listAnswerOption1.innerText=questionBank[questionIndex].answers[0];
+  listAnswerOption2.innerText=questionBank[questionIndex].answers[1];
+  listAnswerOption3.innerText=questionBank[questionIndex].answers[2];
+  listAnswerOption4.innerText=questionBank[questionIndex].answers[3];
   quizContent.appendChild(challengeQuestion);
   quizContent.appendChild(listAnswers);
   listAnswers.appendChild(listAnswerOption1);
   listAnswers.appendChild(listAnswerOption2);
   listAnswers.appendChild(listAnswerOption3);
   listAnswers.appendChild(listAnswerOption4);
-  i++;
-  //console.log(i);
+  questionIndex++; 
+  
+    
 }
 
 
@@ -90,5 +93,3 @@ listAnswers.addEventListener("click", quiz);
 function displayHighScores(){
   alert('local storage stuff');
 }
-
-/////////////////localstorage
