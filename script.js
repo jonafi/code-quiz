@@ -37,7 +37,7 @@ var questionBank = [
 //begin countdown
 function beginQuiz() {
   timerInterval = setInterval(countDown, 1000);
-  quiz();
+  quiz(event);
 }
 
 //countdown by one, when 0 trigger quiz over
@@ -57,36 +57,41 @@ function quizOver() {
 }
 
 //quiz questions
-function quiz(){
-quizContent.innerHTML = "";
-challengeQuestion.innerText = questionBank[1].question;
-listAnswerOption1.innerText=questionBank[1].answers[0];
-listAnswerOption2.innerText=questionBank[1].answers[1];
-listAnswerOption3.innerText=questionBank[1].answers[2];
-listAnswerOption4.innerText=questionBank[1].answers[3];
+function quiz(event){
+  if(event.target.id==="startButton"){
+    quizContent.innerHTML = "";         
+    challengeQuestion.innerText = questionBank[0].question;
+    listAnswerOption1.innerText=questionBank[0].answers[0];
+    listAnswerOption2.innerText=questionBank[0].answers[1];
+    listAnswerOption3.innerText=questionBank[0].answers[2];
+    listAnswerOption4.innerText=questionBank[0].answers[3];
+    
+    quizContent.appendChild(challengeQuestion);
+    quizContent.appendChild(listAnswers);
+    listAnswers.appendChild(listAnswerOption1);
+    listAnswers.appendChild(listAnswerOption2);
+    listAnswers.appendChild(listAnswerOption3);
+    listAnswers.appendChild(listAnswerOption4);
 
- quizContent.appendChild(challengeQuestion);
- quizContent.appendChild(listAnswers);
- listAnswers.appendChild(listAnswerOption1);
- listAnswers.appendChild(listAnswerOption2);
- listAnswers.appendChild(listAnswerOption3);
- listAnswers.appendChild(listAnswerOption4);
-
+  }
+  else{
+  
+    if(event.target.innerHTML===questionBank[0].correctAnswer){
+      console.log('correct anser given');
+    }
+    else{
+      console.log('incorrect');
+    }
+  } 
 }
-
 
 startButton.addEventListener("click", beginQuiz);
 highScores.addEventListener("click", displayHighScores);
-
-
-
+listAnswers.addEventListener("click", quiz);
 
 
 function displayHighScores(){
   alert('local storage stuff');
 }
 
-
 /////////////////localstorage
-
-
