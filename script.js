@@ -58,8 +58,10 @@ function countDown(){
 
 //stop the timer calculate score etc...
 function quizOver() {
-  quizContent.innerHTML = "All done<br>your socre is X<br>Enter your intials[  ]";
+  
+  quizContent.innerHTML = "All done! <br>your socre is " + score +"<br>Enter your intials<input type=\"text\"></input>";
   clearInterval(timerInterval);
+ 
 }
 
 //quiz questions
@@ -69,7 +71,13 @@ function quiz(event){
   score = 0;
   }
   else{
-  questionIndex++
+  questionIndex++;
+  if(event.target.innerHTML === questionBank[questionIndex-1].correctAnswer ){
+  score+=10;
+  }
+  else{
+    console.log("deduct time");
+  }
   }
  
  if(questionIndex<questionBank.length){
