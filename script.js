@@ -24,19 +24,19 @@ var listAnswerOption4 = document.createElement("li");
 var questionBank = [
   {
     "question" : "What does HTML stand for?",
-    "answers" : ["how to meet ladies","HoT MaiL", "HyperText Markup Language","Hey! That's my lettuce!"],
+    "answers" : ["how to meet ladies","Hypertext Meta-Language", "HyperText Markup Language","Hey! That's my lettuce!"],
     "correctAnswer" : "HyperText Markup Language"
    },
   {
-    "question" : "what is question 2 all about?",
-    "answers" : ["question 2","22222", "ham", "not question 2"],
-    "correctAnswer" : "ham"
+    "question" : "Which of the following HTML tags is self-closing",
+    "answers" : ["<img>","<h1>", "<p>", "<div>"],
+    "correctAnswer" : "<img>"
    },
   {
-    "question" : "3, thrird question?",
-    "answers" : ["333","tres", "drei", "three"],
-    "correctAnswer" : "three"
-   },
+    "question" : "Whiche is the correct CSS syntax?",
+    "answers" : ["{body:color=black}","{body;color:black;}", "body{color:black;}", "body:color=black;"],
+    "correctAnswer" : "body{color:black;}"
+     },
   
 ];
 
@@ -59,7 +59,7 @@ function countDown(){
 //stop the timer calculate score etc...
 function quizOver() {
   
-  quizContent.innerHTML = "All done! <br>your socre is " + score +"<br>Enter your intials<input type=\"text\"></input>";
+  quizContent.innerHTML = "All done! <br>your score is " + score +"<br>Enter your intials<input type=\"text\"></input>";
   clearInterval(timerInterval);
  
 }
@@ -72,11 +72,13 @@ function quiz(event){
   }
   else{
   questionIndex++;
-  if(event.target.innerHTML === questionBank[questionIndex-1].correctAnswer ){
+  if(event.target.innerText === questionBank[questionIndex-1].correctAnswer ){
   score+=10;
+
   }
   else{
-    console.log("deduct time");
+ score-=5;
+ quizTimer-=10;
   }
   }
  
