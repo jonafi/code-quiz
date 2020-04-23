@@ -11,8 +11,10 @@ var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
 var highScores = document.querySelector("#highScores");
-var currentQuestion = document.createElement("p")
-currentQuestion.setAttribute("id", "questions")
+var submitScore = document.querySelector("#submitHighScore");
+var intials = document.querySelector("#initals");
+var currentQuestion = document.createElement("p");
+currentQuestion.setAttribute("id", "questions");
 var listAnswers = document.createElement("ol");
 listAnswers.setAttribute("id", "choices");
 var listAnswerOption1 = document.createElement("li");
@@ -58,8 +60,12 @@ function countDown(){
 
 //stop the timer calculate score etc...
 function quizOver() {
-  
-  quizContent.innerHTML = "All done! <br>your score is " + score +"<br>Enter your intials<input type=\"text\"></input>";
+  //TO DO clean up this section, maybe with a block of hidden HTML and a class change
+  quizContent.innerHTML = 'All done! <br>Your score is ' + score + '<br>Enter your intials ' +
+  '<input type="text" id="initials"><br><br>' +
+  '<input type="submit" id="submitHighScore">';
+
+  submitHighScore.addEventListener("click", addHighScore);
   clearInterval(timerInterval);
  
 }
@@ -102,11 +108,23 @@ else{
 }
 
 
+function addHighScore(event){
+  event.preventDefault();
+  localStorage.setItem(document.querySelector("#initials").value, score);
+  
+  }
+
+
+  function displayHighScores(){
+
+    //TO DO sort scores, add play again button, use clean HTML, create element/child format.
+   quizContent.innerHTML="High Scores!";
+for (let [key, value] of Object.entries(localStorage)) {
+  //alert(`${key}: ${value}`);
+  quizContent.append(`${key}: ${value}` + " || ");
+
+  }
+  }
 startButton.addEventListener("click", startTimer);
 highScores.addEventListener("click", displayHighScores);
 listAnswers.addEventListener("click", quiz);
-
-
-function displayHighScores(){
-  alert('local storage stuff');
-}
