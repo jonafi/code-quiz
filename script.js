@@ -7,6 +7,7 @@ var score = 0;
 var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
+var playAgain = document.querySelector("#playAgain");
 
 
 var highScores = document.querySelector("#highScores");
@@ -114,21 +115,31 @@ function addHighScore(event){
   event.preventDefault();
   localStorage.setItem(document.querySelector("#initials").value, score);
   displayHighScores();
+  
   }
 
 function displayHighScores(){
+  clearInterval(timerInterval);
   quizContent.innerHTML="";
+  scoresView.setAttribute("style", "display:block");
   var scoreArray=[];
-  scoresView.setAttribute("style", "display:block")
-  for (let [key, value] of Object.entries(localStorage)) {
-     scoreArray.push(key.toUpperCase().substring(0,3) + " >>>>> " + value);
-  }
-scoresView.append(scoreArray.sort());
-
  
-  
+    for (let [key, value] of Object.entries(localStorage)) {
+    scoreArray.push(value + key.toUpperCase().substring(0,3))
+     //scoreArray.push(key.toUpperCase().substring(0,3) + " >>>>> " + parseInt(value));
+    }
+    scoreArray = scoreArray.sort().reverse();
+  for(let i=0;i<9;i++){
+    console.log(scoreArray[i]);
+  }
+}
+
+function reloadPage(){
+  location.reload();
 }
 
 startButton.addEventListener("click", startTimer);
 highScores.addEventListener("click", displayHighScores);
 listAnswers.addEventListener("click", quiz);
+playAgain.addEventListener("click", reloadPage);
+
