@@ -1,9 +1,6 @@
-//timer vars
 var quizTimer = 60; 
 var timerInterval;
 var questionIndex = 0;
-//scoring related vars
- 
 var score = 0;
 
 //DOM manipulation vars
@@ -11,6 +8,8 @@ var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
 var highScores = document.querySelector("#highScores");
+var topScores = document.querySelector("#topScores");
+var scores = document.querySelector("#scores");
 var submitScore = document.querySelector("#submitHighScore");
 var intials = document.querySelector("#initals");
 var currentQuestion = document.createElement("p");
@@ -73,17 +72,17 @@ function quizOver() {
 //quiz questions
 function quiz(event){
   if(event.target.id ==="startButton"){
-  questionIndex = 0;
-  score = 0;
+    questionIndex = 0;
+    score = 0;
   }
   else{
-  questionIndex++;
+    questionIndex++;
+ 
   if(event.target.innerText === questionBank[questionIndex-1].correctAnswer ){
-  score+=10;
-
+   score+=10;
   }
   else{
- score-=5;
+ score-=2;
  quizTimer-=10;
   }
   }
@@ -107,24 +106,20 @@ else{
 }
 }
 
-
 function addHighScore(event){
   event.preventDefault();
   localStorage.setItem(document.querySelector("#initials").value, score);
-  
+  displayHighScores();
   }
 
-
-  function displayHighScores(){
-
-    //TO DO sort scores, add play again button, use clean HTML, create element/child format.
-   quizContent.innerHTML="High Scores!";
-for (let [key, value] of Object.entries(localStorage)) {
-  //alert(`${key}: ${value}`);
-  quizContent.append(`${key}: ${value}` + " || ");
-
+function displayHighScores(){
+  quizContent.innerHTML="";
+  scores.setAttribute("style", "display:block")
+  for (let [key, value] of Object.entries(localStorage)) {
+    topScores.append(`${key}: ${value}` + " || ");
   }
-  }
+}
+
 startButton.addEventListener("click", startTimer);
 highScores.addEventListener("click", displayHighScores);
 listAnswers.addEventListener("click", quiz);
