@@ -7,12 +7,16 @@ var score = 0;
 var displayCountdown = document.querySelector("#timer");
 var startButton = document.querySelector("#startButton");
 var quizContent = document.querySelector("#quizContent");
+
+
 var highScores = document.querySelector("#highScores");
 var topScores = document.querySelector("#topScores");
-var scores = document.querySelector("#scores");
+var scoresView = document.querySelector("#scores");
 var submitScore = document.querySelector("#submitHighScore");
 var intials = document.querySelector("#initals");
 var currentQuestion = document.createElement("p");
+
+
 currentQuestion.setAttribute("id", "questions");
 var listAnswers = document.createElement("ol");
 listAnswers.setAttribute("id", "choices");
@@ -114,10 +118,15 @@ function addHighScore(event){
 
 function displayHighScores(){
   quizContent.innerHTML="";
-  scores.setAttribute("style", "display:block")
+  var scoreArray=[];
+  scoresView.setAttribute("style", "display:block")
   for (let [key, value] of Object.entries(localStorage)) {
-    topScores.append(`${key}: ${value}` + " || ");
+     scoreArray.push(key.toUpperCase().substring(0,3) + " >>>>> " + value);
   }
+scoresView.append(scoreArray.sort());
+
+ 
+  
 }
 
 startButton.addEventListener("click", startTimer);
