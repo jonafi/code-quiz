@@ -87,7 +87,7 @@ function quiz(event){
    score+=10;
   }
   else{
- score-=2;
+ //score-=2;
  quizTimer-=10;
   }
   }
@@ -125,10 +125,11 @@ function displayHighScores(){
   var scoreArray=[];
  
     for (let [key, value] of Object.entries(localStorage)) {
-    scoreArray.push(value + key.toUpperCase().substring(0,3))
-     //scoreArray.push(key.toUpperCase().substring(0,3) + " >>>>> " + parseInt(value));
+    scoreArray.push(("0" + value).slice(-2) + "-" + key.toUpperCase().substring(0,3))
+     //scoreArray.push(key.to""UpperCase().substring(0,3) + " > " + parseInt(value));
     }
     scoreArray = scoreArray.sort().reverse();
+    //TODO split up the array and chnge the order of the value and key
   for(let i=0;i<9;i++){
     console.log(scoreArray[i]);
   }
