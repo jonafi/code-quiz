@@ -41,10 +41,21 @@ var questionBank = [
     "correctAnswer" : "<img>"
    },
   {
-    "question" : "Whiche is the correct CSS syntax?",
+    "question" : "Which is the correct CSS syntax?",
     "answers" : ["{body:color=black}","{body;color:black;}", "body{color:black;}", "body:color=black;"],
     "correctAnswer" : "body{color:black;}"
      },
+  {
+    "question" : "How do you insert a comment in a CSS file?",
+    "answers" : ["//this is a comment", "//this is a comment//", "/* this is a comment */", "'this is a comment"],
+    "correctAnswer" : "/* this is a comment */"
+     },
+     {
+      "question" : "What is the correct syntax for referring to an external script called \"xxx.js\"?",
+      "answers" : ["<script name =\"xxx.js\">", "<script src =\"xxx.js\">", "<script href =\"xxx.js\">", "<script location =\"xxx.js\">"],
+      "correctAnswer" : "<script src =\"xxx.js\">"
+       },
+    
   
 ];
 
