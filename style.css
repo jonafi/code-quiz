@@ -33,3 +33,12 @@ li:hover{
     background-color:#53bd0c;
     border:1px solid green;
 }
+
+@media (pointer: none) { 
+
+    li:hover{
+        background-color: white;
+        border:1px solid black;
+    }
+
+}
