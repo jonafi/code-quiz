@@ -87,10 +87,11 @@ function quiz(event){
  
   if(event.target.innerText === questionBank[questionIndex-1].correctAnswer ){
    score+=10;
+   alert('CORRECT!');
   }
   else{
- //score-=2;
- quizTimer-=10;
+  quizTimer-=10;
+  alert('INCORRECT!');
   }
   }
  
