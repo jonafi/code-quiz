@@ -16,6 +16,8 @@ var scoresView = document.querySelector("#scores");
 var submitScore = document.querySelector("#submitHighScore");
 var intials = document.querySelector("#initals");
 var currentQuestion = document.createElement("p");
+var scoreEntry = document.createElement("p");
+scoreEntry.setAttribute("class", "scoreEntry");
 
 
 currentQuestion.setAttribute("id", "questions");
@@ -125,14 +127,20 @@ function displayHighScores(){
   var scoreArray=[];
  
     for (let [key, value] of Object.entries(localStorage)) {
-    scoreArray.push(("0" + value).slice(-2) + "-" + key.toUpperCase().substring(0,3))
-     //scoreArray.push(key.to""UpperCase().substring(0,3) + " > " + parseInt(value));
-    }
+    scoreArray.push(("0" + value).slice(-2) + "  " + key.toUpperCase().substring(0,3) +"\n")
     scoreArray = scoreArray.sort().reverse();
-    //TODO split up the array and chnge the order of the value and key
-  for(let i=0;i<9;i++){
-    console.log(scoreArray[i]);
-  }
+     
+    }
+
+    for (let i=0; i<scoreArray.length; i++){
+      topScores.appendChild(scoreEntry); 
+     // scoreEntry.innerText=scoreArray[i];
+     //could not figure out how to cyle through values :(
+      scoreEntry.innerText=scoreArray;
+    }
+  
+   
+
 }
 
 function reloadPage(){
