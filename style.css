@@ -34,7 +34,7 @@ li:hover{
     border:1px solid green;
 }
 
-@media (pointer: none) { 
+@media (hover: none) { 
 
     li:hover{
         background-color: white;
