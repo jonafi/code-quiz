@@ -34,6 +34,11 @@ li:hover{
     border:1px solid green;
 }
 
+#topScores{
+
+    padding-bottom:10px;
+}
+
 @media (hover: none) { 
 
     li:hover{

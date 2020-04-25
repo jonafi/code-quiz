@@ -139,7 +139,7 @@ function displayHighScores(){
   var scoreArray=[];
  
     for (let [key, value] of Object.entries(localStorage)) {
-    scoreArray.push(("0" + value).slice(-2) + "  " + key.toUpperCase().substring(0,3) +"\n")
+    scoreArray.push(("0" + value).slice(-2) + " " + key.toUpperCase().substring(0,3) +"\n")
     scoreArray = scoreArray.sort().reverse();
      
     }
@@ -149,11 +149,10 @@ function displayHighScores(){
      // scoreEntry.innerText=scoreArray[i];
      //could not figure out how to cyle through values :(
       scoreEntry.innerText=scoreArray;
+      scoreEntry.innerHTML = (scoreEntry.innerHTML).replace(/,/g,"");
     }
-  
-   
-
 }
+
 
 function reloadPage(){
   location.reload();
