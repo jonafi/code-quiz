@@ -1,6 +1,10 @@
 # Code quiz
 
-###Vanilla javaScript featuring
+### Vanilla javaScript featuring
+
 -DOM manipulation
+
 -Event listeners
+
 -Intervals
+
